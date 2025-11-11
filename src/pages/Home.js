@@ -91,7 +91,7 @@ const Home = ({ onAddToCart }) => {
       // Normalize to match stored categories (case-insensitive)
       setSelectedCategory(urlCategory);
     }
-  }, []);
+  }, [location.search]);
 
   // When URL changes (e.g., clicked from Footer), update selectedCategory
   useEffect(() => {
@@ -131,7 +131,7 @@ const Home = ({ onAddToCart }) => {
       }
       navigate({ search: params.toString() }, { replace: true });
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, location.search, navigate]);
 
   const handleRetry = () => {
     fetchPlants(currentPage);
